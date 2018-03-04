@@ -19,7 +19,7 @@
       <ul class="nav navbar-nav navbar-right">
         <% if current_user %>
           <li>
-            <%= link_to ('<i class="fa fa-user fa-sm"></i> ' + truncate(current_user.full_name(), length: 25)).html_safe,
+            <%= link_to ('<i class="fa fa-user fa-sm"></i> ' + truncate(current_user.full_name, length: 25)).html_safe,
                             edit_user_registration_path, title: 'Edit Profile' %>
           </li>
           <li><%= link_to 'Log Out', destroy_user_session_path, class: "btn btn-danger padding-btn", method: :delete %></li>
