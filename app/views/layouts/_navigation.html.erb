@@ -1,0 +1,32 @@
+<div class="navbar navbar-default navbar-static-top">
+  <div class="container">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <%= link_to "Yoda Off-Road", root_path, class: 'navbar-brand' %>
+    <div class="navbar-collapse collapse navbar-responsive-collapse">
+      <ul class="nav navbar-nav">
+        <li><%= link_to "Home", root_path  %></li>
+        <li><%= link_to "About Us", about_us_path  %></li>
+        <% if current_user %>
+          <li><%= link_to "Blog", "#"  %></li>
+          <li><%= link_to "Users", "#"  %></li>
+          <li><%= link_to "Store", "#"  %></li>
+        <% end %>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <% if current_user %>
+          <li>
+            <%= link_to ('<i class="fa fa-user fa-sm"></i> ' + truncate(current_user.full_name(), length: 25)).html_safe,
+                            edit_user_registration_path, title: 'Edit Profile' %>
+          </li>
+          <li><%= link_to 'Log Out', destroy_user_session_path, class: "btn btn-danger padding-btn", method: :delete %></li>
+        <% else %>
+          <li><%= link_to 'Login', new_user_session_path, class: "btn btn-primary padding-btn" %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
