@@ -6,6 +6,33 @@ class User < ApplicationRecord
          :confirmable, :lockable
          
   has_many :articles, dependent: :destroy
+  attr_accessor :login
+  
+  validates :username, presence: true,
+            uniqueness: { case_sensitive: false },
+            length: {minimum: 3, maximum: 16}
+  
+  validates_format_of :username, with: /^[a-zA-Z0-9_\.]*$/, :multiline => true
+  
+  validate :validate_username
+            
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+  
+  def self.find_for_database_authentication(warden_conditions)
+    conditions = warden_conditions.dup
+    if login = conditions.delete(:login)
+      where(conditions.to_h).where(["lower(username) = :value OR lower(email) = :value", { :value => login.downcase }]).first
+    elsif conditions.has_key?(:username) || conditions.has_key?(:email)
+      where(conditions.to_h).first
+    end
+  end
+  
+  def validate_username
+    if User.where(email: username).exists?
+      errors.add(:username, :invalid)
+    end
+  end
          
   def full_name
     return "#{first_name} #{last_name}".strip if (first_name || last_name)

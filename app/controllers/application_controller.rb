@@ -1,3 +1,3 @@
 class ApplicationController < ActionController::Base
-  before_action :authenticate_user!, :except => [:index, :about_us]
+  before_action :authenticate_user!
 end

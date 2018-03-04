@@ -1,0 +1,21 @@
+<h3 align="center"><%= @user.full_name %>'s Profile</h3>
+
+<div align="right">
+  <table>
+    <tr>
+      <td><strong>Full Name: </strong></td>
+      <td><%= @user.full_name %> <br /></td>
+    </tr>
+    <tr>
+      <td><strong>Email: </strong></td>
+      <td><%= @user.email %></td>
+    </tr>
+  </table>
+</div>
+<% if @user.articles.count > 0 %>
+  <%= render 'articles/user_articles' %>
+<% else %>
+  <p class="lead">This user hasn't written any articles</p>
+<% end %>
+
+<%= link_to "Back", users_path, class: "btn btn-primary" %>

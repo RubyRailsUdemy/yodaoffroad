@@ -71,11 +71,6 @@
   padding-left: 15px !important;
 }
 
-.listing {
-  list-style: none;
-  padding-left: 0;
-}
-
 .user-name {
 
 padding: 0 !important ;
@@ -172,4 +167,18 @@ background-color: darken(#428bca,20%) !important;
 
 color: #fff;
 
+}
+
+.user-list-padding {
+  padding: 10px;
+}
+
+.listing {
+  list-style: none;
+  padding: 0;
+}
+
+.user-listing {
+  list-style: none;
+  columns: 2;
 }

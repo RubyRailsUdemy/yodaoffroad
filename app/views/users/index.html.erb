@@ -1,0 +1,30 @@
+<h3 class="sectionheader">Users</h3>
+<div align="center">
+  <%= will_paginate %>
+  <ul class="user-listing">
+    <% @users.each do |user| %>
+      <li>
+        <ul class="listing">
+          <div class='row'>
+            <div class='well col-md-4 col-md-offset-2 user-square'>
+              <li><%= link_to gravatar_for(user), user_path(user) %></li>
+              <li class="article-title">
+                <%= link_to( truncate(user.username, length: 16).html_safe, user_path(user)) %>
+              </li>
+              <li>
+                <small>
+                  <%= pluralize(user.articles.count, 'Article') if user.articles %>
+                </small>
+              </li>
+              <% if current_user %>
+                <li><%= link_to "Delete this user", user_path(user), method: :delete, 
+                    data: { confirm: "Are you sure you want to delete this user and their articles"} %></li>
+              <% end %>
+            </div>
+          </div>
+        </ul>
+      </li>
+    <% end %>
+  </ul>
+  <%= will_paginate %>
+</div>
