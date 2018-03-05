@@ -1,30 +1,38 @@
-<h3 class="sectionheader">Users</h3>
 <div align="center">
   <%= will_paginate %>
-  <ul class="user-listing">
-    <% @users.each do |user| %>
-      <li>
-        <ul class="listing">
-          <div class='row'>
-            <div class='well col-md-4 col-md-offset-2 user-square'>
-              <li><%= link_to gravatar_for(user), user_path(user) %></li>
-              <li class="article-title">
-                <%= link_to( truncate(user.username, length: 16).html_safe, user_path(user)) %>
-              </li>
-              <li>
-                <small>
-                  <%= pluralize(user.articles.count, 'Article') if user.articles %>
-                </small>
-              </li>
-              <% if (can? :destroy, User) %>
-                <li><%= link_to "Delete this user", user_path(user), method: :delete, 
-                    data: { confirm: "Are you sure you want to delete this user and their articles"} %></li>
+    <div class='row'>
+      <table class="user-list table table-striped">
+        <tr>
+          <th>Avatar</th>
+          <th>Username</th>
+          <th>Role</th>
+          <% if can? :manage, :all %>
+            <th>Actions</th>
+          <% end %>
+        </tr>
+        <% @users.each do |user| %>
+          <tr>
+            <td>
+              <%= link_to gravatar_for(user), user_path(user) %>
+            </td>
+            <td>
+              <%= link_to( truncate(user.username, length: 16).html_safe, user_path(user)) %> <br />
+              <%= pluralize(user.articles.count, 'Article') if user.articles %>
+            </td>
+            <td>
+              <%= user.role.capitalize %>
+            </td>
+            <td>
+              <% if (can? :destroy, User) && can_be_destroyed(user) %>
+                <%= link_to "Delete this user", user_path(user), method: :delete, class: 'btn btn-xs btn-danger', data: { confirm: "Are you sure you want to delete this user and their articles"} %>
               <% end %>
-            </div>
-          </div>
-        </ul>
-      </li>
-    <% end %>
-  </ul>
+              <% if (can? :update, User) || (current_user == user) %>
+                <%= link_to "Edit Profile", edit_profile_path(user), class: 'btn btn-xs btn-primary' %>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
   <%= will_paginate %>
 </div>

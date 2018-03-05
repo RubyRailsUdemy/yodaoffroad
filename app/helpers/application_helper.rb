@@ -5,4 +5,11 @@ module ApplicationHelper
     gravatar_url = "https://secure.gravatar.com/avatar/#{gravatar_id}?s=#{size}"
     image_tag(gravatar_url, alt: user.email, class: 'img-rounded')
   end
+  
+  def can_be_destroyed(user)
+    if (current_user == user) || (current_user.role == user.role) || (user.role == "admin")
+      return false;
+    end
+    return true
+  end
 end
