@@ -1,24 +1,3 @@
-# README
+# Yoda Off-Road
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Welcome to Yoda Off-Road. We started this community approximately a year ago after long break from the Overlanding world. I was introduced to Overlanding when I was about 3 years old. My first vehicle was a 1990 Toyota Pickup that was slowing being built until one fateful day I decided to fall asleep and hit a parked car. I then purchased a 2001 Toyota Tacoma from my Dad. In about 2008 was the last time We hit the trails to explore what nature had to offer. In March of 2017 My fiance and I bought a 2017 Toyota Tacoma (see the pattern here) and thus the birth of Yoda Off-Road. The first community we created was dubbed 4 Wheel Toys since my dad and I both had Toyotas and loved how they preformed off-road. This time when I started this community I decided To name it after a few loves of mine. Toyota's founders last name is actually Toyoda however the family decided since the letter D takes 10 character strokes and 10's charater looks like a X they felt it signified a cross-roads which is bad in any business so they changed it to a T. The scond meaning of the name comes from starwars as I am an avid fan of the entire starwars universe. Yes this includes the prequals and the last jedi.
