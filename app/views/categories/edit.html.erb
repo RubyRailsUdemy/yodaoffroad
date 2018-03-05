@@ -1,2 +1,9 @@
+<% if (cannot? :upate, Category) %>
+  <% flash[:danger] = "You are not authorized to view his page" %>
+  <script type="text/javascript">
+    window.location.href="/categories"  // put your correct path in a string here
+  </script>
+<% end %>
+
 <h3 align="center">Edit Category: <%= @category.name %></h3>
 <%= render 'form' %>

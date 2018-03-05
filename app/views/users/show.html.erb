@@ -1,19 +1,15 @@
-<h3 align="center"><%= @user.full_name %>'s Profile</h3>
+<h3 align="center">
+  <%= @user.username %>'s Profile
+  <% if (can? :update, User) || (current_user == @user) %>
+    <%= link_to 'Edit Profile', edit_profile_path(@user), class: 'btn btn-primary btn-xs' %>
+  <% end %>
+</h3>
 
-<div align="right">
-  <table>
-    <tr>
-      <td><strong>Full Name: </strong></td>
-      <td><%= @user.full_name %> <br /></td>
-    </tr>
-    <tr>
-      <td><strong>Email: </strong></td>
-      <td><%= @user.email %></td>
-    </tr>
-  </table>
-</div>
+<%= render 'users/profile' %>
+
+<h3><%= @user.username %>'s Articles</h3>
 <% if @user.articles.count > 0 %>
-  <%= render 'articles/user_articles' %>
+  <%= render 'articles/article', obj: @user_articles %>
 <% else %>
   <p class="lead">This user hasn't written any articles</p>
 <% end %>

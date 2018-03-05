@@ -1,0 +1,32 @@
+<div align="center">
+  <table>
+     <% if @user.settings(:user_show_settings).show_name %>
+      <tr>
+        <td><strong>Name: &nbsp;</strong></td>
+        <td><%= @user.full_name %></td>
+      </tr>
+    <% end %>
+    <% if @user.settings(:user_show_settings).show_email %>
+      <tr>
+        <td><strong>Email: &nbsp;</strong></td>
+        <td><%= @user.email %></td>
+      </tr>
+    <% end %>
+    <% if @user.settings(:user_show_settings).show_birthday %>
+      <tr>
+        <td><strong>Birthday: &nbsp;</strong></td>
+        <td><%= @user.settings(:user_settings).birthday %></td>
+      </tr>
+    <% end %>
+    <% if @user.settings(:user_show_settings).show_website %>
+      <tr>
+        <td><strong>Email: &nbsp;</strong></td>
+        <td><%= @user.settings(:user_settings).website %></td>
+      </tr>
+    <% end %>
+      <tr>
+        <td><strong>Bio: &nbsp;</strong></td>
+        <td><%= @user.settings(:user_settings).bio %></td>
+      </tr>
+  </table>
+</div>

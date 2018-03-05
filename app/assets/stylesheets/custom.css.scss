@@ -1,5 +1,13 @@
 @import "font-awesome";
 
+.profile-edit {
+  text-align: left;
+}
+
+.profile-cell {
+  padding-right: 15px;
+}
+
 #footer {
   margin-top: 45px;
   padding-top: 5px;
@@ -36,6 +44,10 @@
   }
 }
 
+.center {
+  text-align: center;
+}
+
 .jumbotron {
   text-align: center;
   background-image: asset-url('jumbotronimg.jpg');
@@ -53,6 +65,11 @@
 
 .padding-btn {
   padding: 5px 10px !important;
+}
+
+.new-article-btn {
+  padding: 5px 10px !important;
+  margin-bottom: 20px;
 }
 
 .no-padding {
@@ -181,4 +198,17 @@ color: #fff;
 .user-listing {
   list-style: none;
   columns: 2;
+}
+
+.badge {
+  background-color: #eaeaea;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  font-weight: bold;
+  margin-right: 3px;
+  margin-bottom: 3px;
+}
+
+.badge a {
+  color: #999999;
 }

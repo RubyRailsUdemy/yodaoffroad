@@ -2,7 +2,9 @@
 <div align="center">
   <% if current_user %>
     <div class='row'>
-      <span class="badge"><%= link_to "Edit Category", edit_category_path(@category) %></span>
+      <% if can? :update, Article %>
+        <span class="badge"><%= link_to "Edit Category", edit_category_path(@category) %></span>
+      <% end %>
     </div>
   <% end %>
   <%= will_paginate @category_articles%>

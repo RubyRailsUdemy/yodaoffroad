@@ -1,0 +1,53 @@
+<% if (cannot? :upate, User) && current_user != @user %>
+  <% flash[:danger] = "You are not authorized to view his page" %>
+  <script type="text/javascript">
+    window.location.href="/categories"  // put your correct path in a string here
+  </script>
+<% end %>
+
+<div align="center">
+  <%= form_tag profile_path(@user), method: :patch do %>
+    <div class="form-group row no-padding text-center col-md-12">
+      <div class="col-md-10 profile-edit">
+        <strong> Birthday: </strong>
+        <%= text_field_tag :birthday, params[:birthday], placeholder: "Enter your birthday: YYYY-MM-DD", autofocus: true, value: @user.settings(:user_settings).birthday, class: 'form-control search-box input-sm' %>
+        
+        <strong> Website: </strong>
+        <%= text_field_tag :website, params[:website], placeholder: "Enter your Website", value: @user.settings(:user_settings).website, class: 'form-control search-box input-lg' %>
+        
+        <strong> Bio: </strong>
+        <%= text_area_tag :bio, @user.settings(:user_settings).bio, class: 'form-control search-box input-lg' %>
+        
+        <table>
+          <tr>
+            <th class="profile-cell">Option</th>
+            <th class="profile-cell">Show</th>
+            <th class="profile-cell">Hide</th>
+          </tr>
+          <tr>
+            <td class="profile-cell">Full Name</td>
+            <td class="profile-cell"><%= radio_button_tag("show_name", true, @user.settings(:user_show_settings).show_name) %></td>
+            <td class="profile-cell"><%= radio_button_tag("show_name", false, !@user.settings(:user_show_settings).show_name) %></td>
+          </tr>
+          <tr>
+            <td class="profile-cell">E-Mail</td>
+            <td class="profile-cell"><%= radio_button_tag("show_email", true, @user.settings(:user_show_settings).show_email) %></td>
+            <td class="profile-cell"><%= radio_button_tag("show_email", false, !@user.settings(:user_show_settings).show_email) %></td>
+          </tr>
+          <tr>
+            <td class="profile-cell">Birthday</td>
+            <td class="profile-cell"><%= radio_button_tag("show_birthday", true, @user.settings(:user_show_settings).show_birthday) %></td>
+            <td class="profile-cell"><%= radio_button_tag("show_birthday", false, !@user.settings(:user_show_settings).show_birthday) %></td>
+          </tr>
+          <tr>
+            <td class="profile-cell">Website</td>
+            <td class="profile-cell"><%= radio_button_tag("show_website", true, @user.settings(:user_show_settings).show_website) %></td>
+            <td class="profile-cell"><%= radio_button_tag("show_website", false, !@user.settings(:user_show_settings).show_website) %></td>
+          </tr>
+        </table>
+        <br />
+        <%= button_tag('Update Profile', type: :submit, class: "btn btn-lg btn-success") %>
+      </div>
+    </div>
+  <% end %>
+</div>
