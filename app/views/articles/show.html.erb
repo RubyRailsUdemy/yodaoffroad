@@ -36,7 +36,7 @@
   <% if current_user %>
     <hr />
     <h3 class='page-header'>Add a Comment</h3>
-    <%= form_for([@article, @comment], :html => {class: 'form-horizontal', role: 'form'}) do |f| %>
+    <%= form_for([@article, @comment], remote: true, :html => {class: 'form-horizontal', role: 'form'}) do |f| %>
       <div class='form-group'>
         <div class='control-label col-sm-12'>
             <%= f.text_area :text, rows: 5, autofocus: true, class: 'form-control', placerholder: 'Body of article' %>
@@ -52,6 +52,6 @@
   <% if @article.comments.any? %>
     <hr />
     <h3 class='page-header'>Comments</h3>
-    <%= render 'articles/comments' %>
+    <%= render 'comments/comments' %>
   <% end %>
 </div>

@@ -15,6 +15,8 @@ Rails.application.routes.draw do
     resources :comments
   end
   
+  mount ActionCable.server => '/cable'
+  
   resources :categories, except: [:destroy]
   resources :users, only: [:show, :index]
   

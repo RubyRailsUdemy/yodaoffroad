@@ -1,15 +1,8 @@
 class CommentsController < ApplicationController
+  before_action get_article
+  
   def create
-    @comment = Comment.new(comment_params)
-    @comment.article = Article.find(params[:article_id])
-    @comment.user = current_user
-    if @comment.save()
-      flash[:success] = "Comment added successfully"
-      redirect_to article_path(@comment.article)
-    else
-      flash[:danger] = "Something went terribly wrong"
-      redirect_to article_path(@comment.article)
-    end
+    @comment = Comment.create! text: params[:comment][:text], article: @article, user: current_user
   end
   
   def destroy
@@ -26,6 +19,9 @@ class CommentsController < ApplicationController
   private
     def comment_params
       params.require(:comment).permit(:text)
+    end
+    def get_article
+      @article = Article.find(params[:article_id]
     end
   # End Of Private
 end

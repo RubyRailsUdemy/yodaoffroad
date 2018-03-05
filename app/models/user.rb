@@ -9,7 +9,7 @@ class User < ApplicationRecord
   
   has_many :user_options, dependent: :destroy
   has_many :options, through: :user_options
-  has_many :comments
+  has_many :comments, dependent: :destroy
   has_many :articles, dependent: :destroy
   attr_accessor :login
   
