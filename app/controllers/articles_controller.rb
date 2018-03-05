@@ -34,6 +34,7 @@ class ArticlesController < ApplicationController
   end
   
   def show
+    @comment = Comment.new
   end
     
   def destroy
@@ -50,12 +51,5 @@ class ArticlesController < ApplicationController
     def article_params
       params.require(:article).permit(:title, :description, category_ids: [])
     end
-    
-    #def require_same_user
-    #  if current_user != @article.user && !current_user.admin?
-    #    flash[:danger] = "You can only modify your own articles"
-    #    redirect_to root_path
-    #  end
-    #end
   #Private (for my sanity when checking indents)
 end

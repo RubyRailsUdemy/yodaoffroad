@@ -1,0 +1,25 @@
+<div class="col-md-12">
+  <table class="user-list table table-striped">
+    <% @article.comments.each do |c| %>
+      <tr>
+        <td class="comment_meta">
+          <%= link_to c.user.username, user_path(c.user) %> <br />
+          <%= link_to gravatar_for(c.user), user_path(c.user) %>
+        </td>
+        <td class="comment-body">
+          <%= c.text %>
+        </td>
+      </tr>
+      <tr>
+        <td class="comment-actions">
+          <% if (can? :destroy, Comment) || (current_user == c.user) %>
+            <%= link_to 'Remove', article_comment_path(@article, c), method: :delete, data: { confirm: "Are you sure you want to delete this comment?"}, class: 'btn btn-xs btn-danger' %>
+          <% end %>
+        </td>
+        <td class="comment-timestamp">
+          Created On: <%= c.created_at %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+</div>

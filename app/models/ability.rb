@@ -11,7 +11,7 @@ class Ability
     if user.role == "admin"
       can :manage, :all
     elsif user.role == "moderator"
-      can :crud, [Article, Category, User]
+      can :crud, [Article, Category, User, Comment]
       cannot :destroy, [Category]
       cannot :create, :destroy, [User]
     elsif user.role == "author"
