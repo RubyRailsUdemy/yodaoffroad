@@ -140,31 +140,31 @@ padding-left: 0;
 
 .nav.navbar-nav {
 
-.navbar-link {
-
-border-radius: 5px;
-
-color: #fff;
-
-margin-top: 15px;
-
-padding: 8px;
-
-}
-
-.navbar-link:focus, .navbar-link:hover {
-
-background: #3071a9;
-
-color: #fff;
-
-}
-
-li a {
-
-margin-right: 5px;
-
-}
+  .navbar-link {
+  
+    border-radius: 5px;
+    
+    color: #fff;
+    
+    margin-top: 15px;
+    
+    padding: 8px;
+  
+  }
+  
+  .navbar-link:focus, .navbar-link:hover {
+  
+    background: #3071a9;
+    
+    color: #fff;
+  
+  }
+  
+  li a {
+  
+    margin-right: 5px;
+  
+  }
 
 }
 
@@ -223,4 +223,16 @@ color: #fff;
 
 .badge a {
   color: #999999;
+}
+
+.lead {
+  font-size: 14px;
+}
+
+.header-sm {
+  font-size: 20px;
+}
+
+.border-top {
+  border-top: 1px solid #eee;
 }

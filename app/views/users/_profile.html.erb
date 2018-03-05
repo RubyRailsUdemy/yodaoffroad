@@ -1,32 +1,28 @@
-<div align="center">
+<div align="left">
   <table>
-     <% if @user.settings(:user_show_settings).show_name %>
-      <tr>
+    <tr>
+      <% if @user.settings(:user_show_settings).show_name %>
         <td><strong>Name: &nbsp;</strong></td>
-        <td><%= @user.full_name %></td>
-      </tr>
-    <% end %>
-    <% if @user.settings(:user_show_settings).show_email %>
-      <tr>
+        <td><%= @user.full_name %> &nbsp;</td>
+      <% end %>
+      <% if @user.settings(:user_show_settings).show_email %>
         <td><strong>Email: &nbsp;</strong></td>
-        <td><%= @user.email %></td>
-      </tr>
-    <% end %>
-    <% if @user.settings(:user_show_settings).show_birthday %>
-      <tr>
+        <td><%= @user.email %> &nbsp;</td>
+      <% end %>
+    </tr>
+    <tr>
+      <% if @user.settings(:user_show_settings).show_birthday %>
         <td><strong>Birthday: &nbsp;</strong></td>
-        <td><%= @user.settings(:user_settings).birthday %></td>
-      </tr>
-    <% end %>
-    <% if @user.settings(:user_show_settings).show_website %>
-      <tr>
+        <td><%= @user.settings(:user_settings).birthday %> &nbsp;</td>
+      <% end %>
+      <% if @user.settings(:user_show_settings).show_website %>
         <td><strong>Website: &nbsp;</strong></td>
-        <td><%= @user.settings(:user_settings).website %></td>
-      </tr>
-    <% end %>
-      <tr>
-        <td><strong>Bio: &nbsp;</strong></td>
-        <td><%= @user.settings(:user_settings).bio %></td>
-      </tr>
+        <td><%= @user.settings(:user_settings).website %> &nbsp;</td>
+      <% end %>
+    </tr>
   </table>
+  <hr />
+  <strong>Bio:</strong> <br />
+  <%= @user.settings(:user_settings).bio %>
 </div>
+<hr />

@@ -1,4 +1,4 @@
-<h3 align="center">
+<h3 class="page-header">
   <%= @user.username %>'s Profile
   <% if (can? :update, User) || (current_user == @user) %>
     <%= link_to 'Edit Profile', edit_profile_path(@user), class: 'btn btn-primary btn-xs' %>
@@ -7,7 +7,7 @@
 
 <%= render 'users/profile' %>
 
-<h3><%= @user.username %>'s Articles</h3>
+<h3 class="page-header header-sm"><%= @user.username %>'s Articles</h3>
 <% if @user.articles.count > 0 %>
   <%= render 'articles/article', obj: @user_articles %>
 <% else %>
