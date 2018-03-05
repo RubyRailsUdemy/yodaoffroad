@@ -8,7 +8,7 @@ class CommentsController < ApplicationController
       redirect_to article_path(@comment.article)
     else
       flash[:danger] = "Something went terribly wrong"
-      redirect_to article_path(@article)
+      redirect_to article_path(@comment.article)
     end
   end
   

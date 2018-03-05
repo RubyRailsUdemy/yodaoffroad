@@ -33,19 +33,21 @@
     <% end %>
     <%= link_to "View all Articles", articles_path, class: 'btn btn-xs btn-success' %>
   </div>
-  <hr />
-  <h3 class='page-header'>Add a Comment</h3>
-  <%= form_for([@article, @comment], :html => {class: 'form-horizontal', role: 'form'}) do |f| %>
-    <div class='form-group'>
-      <div class='control-label col-sm-12'>
-          <%= f.text_area :text, rows: 5, autofocus: true, class: 'form-control', placerholder: 'Body of article' %>
+  <% if current_user %>
+    <hr />
+    <h3 class='page-header'>Add a Comment</h3>
+    <%= form_for([@article, @comment], :html => {class: 'form-horizontal', role: 'form'}) do |f| %>
+      <div class='form-group'>
+        <div class='control-label col-sm-12'>
+            <%= f.text_area :text, rows: 5, autofocus: true, class: 'form-control', placerholder: 'Body of article' %>
+        </div>
       </div>
-    </div>
-    <div class='form-group'>
-      <div class='col-sm-offset-10 col-sm-10'>
-        <%= f.submit 'Add Comment', class: 'btn btn-primary btn-xs' %>
+      <div class='form-group'>
+        <div class='col-sm-offset-10 col-sm-10'>
+          <%= f.submit 'Add Comment', class: 'btn btn-primary btn-xs' %>
+        </div>
       </div>
-    </div>
+    <% end %>
   <% end %>
   <% if @article.comments.any? %>
     <hr />

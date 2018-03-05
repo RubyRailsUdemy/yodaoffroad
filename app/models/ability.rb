@@ -16,6 +16,8 @@ class Ability
       cannot :create, :destroy, [User]
     elsif user.role == "author"
       can :author, [Article]
+    elsif user.role == "user"
+      can :create, [Comment]
     else
       can :read, :all
     end
