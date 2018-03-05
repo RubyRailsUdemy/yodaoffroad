@@ -7,7 +7,7 @@
           <%= link_to gravatar_for(c.user), user_path(c.user) %>
         </td>
         <td class="comment-body">
-          <%= c.text %>
+          <%= raw(c.text) %>
         </td>
       </tr>
       <tr>

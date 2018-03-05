@@ -2,8 +2,6 @@ class Comment < ApplicationRecord
   belongs_to :article
   belongs_to :user
   
-  after_create_commit { RenderCommentJob.perform_later self }
-  
   validates :text, presence: true,
             length: {minimum: 5, maximum: 1200}
   
